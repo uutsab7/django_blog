@@ -1,0 +1,26 @@
+{% include 'header.html' %}
+{% load static %}
+
+{% block content %} 
+
+<div class="container-custom">
+    <h3>{{cat.title}}</h3>
+    <div class="img-container">
+        <img src="/media/{{cat.image}}" class="responsive-img" style="height:450px ; width:100%; object-fit:cover;">
+    </div>
+
+    <div class="collection">
+        {% for p in posts %}
+        <a href="/post/{{p.url}}" class="collection-item">{{p.title}}</a>
+        {% empty %}
+
+        <p>No post in this category please contact admin to add one</p>
+
+        {% endfor %}
+      </div>
+            
+</div>
+
+
+
+{% endblock %}

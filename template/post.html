@@ -1,0 +1,41 @@
+{% include 'header.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        {% for posts in posts %}
+        <div class="col m10">
+            <h2>{{posts.title}}</h2>
+            <h3>this post is about - {{posts.cat.title}}</h3>
+            <img src="/media/{{posts.image}}" class="responsive-img">
+        
+        <br>
+        <p>{{posts.content|safe}}</p>
+        
+        </div>
+        {% endfor %}
+       
+        <div class="col m2">
+            {% for cat in cats %}
+            <div class="card item">
+                <div class="img-container">
+                    <img src="/media/{{cat.image}}" class="responsive-img">
+                </div>
+                <div class="card-content">
+                    <b>{{cat.title}}</b>
+                    <p class="truncatinate">{{cat.description}}</p>
+                    <div class="container">
+                        <a href="#" class=" btn bg-primary">View</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
